@@ -7,5 +7,4 @@ const catchAll = (req: NextApiRequest, res: NextApiResponse) =>
     listener(req, res);
     res.on("finish", resolve);
   });
-
 export default catchAll;

@@ -12,8 +12,8 @@ export module Main {
     if (!app) {
       app = await NestFactory.create(AppModule, { bodyParser: false });
       app.setGlobalPrefix("api");
-      setupSwagger(app);
       await app.init();
+      await swaggeerApp();
     }
 
     return app;
@@ -23,20 +23,24 @@ export module Main {
     const app = await getApp();
 
     const server: http.Server = app.getHttpServer();
-
+    // console.log(`server=${JSON.stringify(server)}`);
     const [listener] = server.listeners("request") as NextApiHandler[];
 
     return listener;
   }
 
-  function setupSwagger(app: INestApplication): void {
-    const options = new DocumentBuilder()
-      .setTitle("NestJS API Docs")
-      .setDescription("NestJS API description")
-      .setVersion("1.0.0")
-      .build();
+  async function swaggeerApp() {
+    const app = await NestFactory.create(AppModule);
 
-    const document = SwaggerModule.createDocument(app, options);
-    SwaggerModule.setup("api-docs", app, document);
+    const config = new DocumentBuilder()
+      .setTitle("API")
+      .setDescription("The cats API description")
+      .setVersion("1.0")
+      .addTag("cats")
+      .build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup("apis", app, document);
+
+    await app.listen(3000);
   }
 }
