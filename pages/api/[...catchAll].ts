@@ -1,4 +1,4 @@
-import { Main } from "@/server/main";
+import { Main } from "@/nest/main";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const catchAll = (req: NextApiRequest, res: NextApiResponse) =>
