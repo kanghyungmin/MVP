@@ -15,7 +15,7 @@ export class DBconnectionService {
         "@" +
         process.env.ATLAS_MONGO_HOST +
         "/" +
-        process.env.REPL_MONGO_DB,
+        process.env.ATLAS_MONGO_DBNAME,
       // 'test',
       useNewUrlParser: true,
       useUnifiedTopology: true,
