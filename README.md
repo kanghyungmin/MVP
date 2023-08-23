@@ -17,5 +17,12 @@ yarn dev
 ## Guide
 `master` branch is the deploy branch into AWS. So, you shold care about adding source into this branch. 
 It means that you should make a feature branch. After finishing coding, PR should be requested. 
+
+## Figma 
+
+## 3rd Party Library 
+ - Sendgird
+ - Atlas
+ - AWS
   
 
