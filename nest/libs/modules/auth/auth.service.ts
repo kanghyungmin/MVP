@@ -1,23 +1,22 @@
-// import { Injectable } from "@nestjs/common";
-// //service
-// //dto
-// import { RegisterAccountDto } from "../../v1/dto/account.dto";
-// import { AdminAccountDocument } from "../common/entities/admin.entity";
-// import { AdminAccountService } from "../service/adminAccount.service";
+import { AccountService } from "@/nest/service/account.service";
+import { Injectable } from "@nestjs/common";
+import { RegisterAccountDto } from "../../dtos/account.dto";
+import { AccountDocument } from "../../models/account.entity";
 
-// @Injectable()
-// export class AuthService {
-//   constructor(private adminAccountService: AdminAccountService) {}
+@Injectable()
+export class AuthService {
+  constructor(private AccountService: AccountService) {}
 
-//   async validateAccount(
-//     registerAccountDto: RegisterAccountDto
-//   ): Promise<AdminAccountDocument> | null {
-//     const account: AdminAccountDocument =
-//       await this.adminAccountService.findOne(registerAccountDto);
+  async validateAccount(
+    registerAccountDto: RegisterAccountDto
+  ): Promise<AccountDocument | null> {
+    const account: AccountDocument | null = await this.AccountService.findOne(
+      registerAccountDto
+    );
 
-//     if (!account) {
-//       return null;
-//     }
-//     return account;
-//   }
-// }
+    if (!account) {
+      return null;
+    }
+    return account;
+  }
+}
