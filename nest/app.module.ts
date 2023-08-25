@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { ConfigModule } from "./libs/module/config/config.module";
-import { DBconnectionMoudle } from "./libs/module/db/connection.module";
+import { ConfigModule } from "./libs/modules/config/config.module";
+import { DBconnectionMoudle } from "./libs/modules/db/connection.module";
 import { MongooseModule } from "@nestjs/mongoose";
-import { DBconnectionService } from "./libs/module/db/connection.service";
-import { Account, AccountSchema } from "./libs/model/account.entity";
+import { DBconnectionService } from "./libs/modules/db/connection.service";
+import { Account, AccountSchema } from "./libs/models/account.entity";
 
 @Module({
   imports: [
