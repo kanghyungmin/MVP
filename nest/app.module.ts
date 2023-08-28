@@ -14,17 +14,20 @@ import { AuthModule } from "./libs/modules/auth/auth.module";
 @Module({
   imports: [
     ConfigModule.register({ envPath: ".env" }),
-    AuthModule,
     DBconnectionMoudle,
+    // data schema
+    MongooseModule.forFeature(
+      [{ name: Account.name, schema: AccountSchema }],
+      process.env.ATLAS_MONGO_DBNAME
+    ),
+    //connection
     MongooseModule.forRootAsync({
-      connectionName: process.env.REPL_MONGO_DB,
+      connectionName: process.env.ATLAS_MONGO_DBNAME,
       inject: [DBconnectionService],
       useFactory: async (dbSvc: DBconnectionService) => dbSvc.getMongoConfig(),
     }),
-    MongooseModule.forFeature(
-      [{ name: Account.name, schema: AccountSchema }],
-      process.env.REPL_ADMIN_MONGO_DB
-    ),
+
+    // AuthModule,
   ],
   controllers: [AppController, AccountController],
   providers: [AppService, AccountService, AccountRepository],

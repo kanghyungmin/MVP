@@ -31,10 +31,7 @@ import { AccountService } from "../service/account.service";
 @Controller("account")
 @ApiTags("Account APIs")
 export class AccountController {
-  constructor(
-    @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
-    private accountService: AccountService
-  ) {}
+  constructor(private accountService: AccountService) {}
 
   @Post("/register")
   @ApiOperation({

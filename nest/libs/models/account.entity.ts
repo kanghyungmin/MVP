@@ -20,6 +20,10 @@ export class Account {
     example: UserType.ADMIN,
   })
   type: UserType;
+
+  constructor(partial?: Partial<Account>) {
+    if (partial) Object.assign(this, partial);
+  }
 }
 
 export const AccountSchema = SchemaFactory.createForClass(Account);

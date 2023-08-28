@@ -1,6 +1,7 @@
-import { DynamicModule, Module } from "@nestjs/common";
+import { DynamicModule, Global, Module } from "@nestjs/common";
 import { ConfigService } from "./config.service";
 
+@Global()
 @Module({})
 export class ConfigModule {
   static register(options: Record<string, any>): DynamicModule {

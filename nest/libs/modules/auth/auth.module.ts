@@ -9,12 +9,22 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { ConfigService } from "../config/config.service";
 import { AccountService } from "@/nest/service/account.service";
 import { AccountRepository } from "@/nest/repository/accout.repo";
+import { DBconnectionService } from "../db/connection.service";
+import { DBconnectionMoudle } from "../db/connection.module";
+import { ConfigModule } from "../config/config.module";
 import { Account, AccountSchema } from "../../models/account.entity";
 
 @Module({
   imports: [
+    // ConfigModule.register({ envPath: ".env" }),
     PassportModule.register({ defaultStrategy: "jwt" }),
-
+    // DBconnectionMoudle,
+    // //connection
+    // MongooseModule.forRootAsync({
+    //   connectionName: process.env.ATLAS_MONGO_DBNAME,
+    //   inject: [DBconnectionService],
+    //   useFactory: async (dbSvc: DBconnectionService) => dbSvc.getMongoConfig(),
+    // }),
     MongooseModule.forFeature(
       [{ name: Account.name, schema: AccountSchema }],
       process.env.ATLAS_MONGO_DBNAME

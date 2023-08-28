@@ -3,13 +3,15 @@ import { ClientSession, Model } from "mongoose";
 
 import { RegisterAccountDto } from "../libs/dtos/account.dto";
 import { ErrorType } from "../libs/enums/errorType";
-import { Account, AccountDocument } from "../libs/models/account.entity";
 import { CustomError } from "../libs/utils/error.util";
+import { Account, AccountDocument } from "../libs/models/account.entity";
+import { Injectable } from "@nestjs/common";
 
+@Injectable()
 export class AccountRepository {
   constructor(
     @InjectModel(Account.name)
-    private readonly accountModel: Model<Account>
+    private readonly accountModel: Model<AccountDocument>
   ) {}
 
   async registerAccount(

@@ -14,11 +14,8 @@ export class AccountService {
     private readonly accountRepository: AccountRepository,
     private jwtService: JwtService,
 
-    @InjectConnection(process.env.REPL_ADMIN_MONGO_DB)
-    private readonly mongoConnection: Connection,
-
-    @InjectConnection(process.env.REPL_MONGO_DB)
-    private readonly mongoChangerConnection: Connection
+    @InjectConnection(process.env.ATLAS_MONGO_DBNAME)
+    private readonly mongoConnection: Connection
   ) {}
 
   async registerAccount(
