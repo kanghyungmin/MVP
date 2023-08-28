@@ -1,74 +1,74 @@
-// import {
-//   Injectable,
-//   ExecutionContext,
-//   HttpException,
-//   HttpStatus,
-// } from "@nestjs/common";
-// import { AuthGuard } from "@nestjs/passport";
-// import { JwtService } from "@nestjs/jwt";
-// import { AdminAccountDocument } from "src/admin/common/entities/admin.entity";
-// import { AppConfigService } from "src/config/config.service";
+import {
+  Injectable,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+} from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+import { JwtService } from "@nestjs/jwt";
+import { ErrorType } from "../enums/errorType";
+import { AccountDocument } from "../models/account.entity";
+import { ConfigService } from "../modules/config/config.service";
+import { AccountService } from "@/nest/service/account.service";
 
-// import { AdminAccountService } from "../../service/adminAccount.service";
-// import { ErrorType } from "../../../common/enums/errorType";
+@Injectable()
+export class JwtAuthGuard extends AuthGuard("jwt") {
+  constructor(
+    private jwtService: JwtService,
+    private accountService: AccountService,
+    private config: ConfigService
+  ) {
+    super();
+  }
 
-// @Injectable()
-// export class JwtAuthGuard extends AuthGuard("jwt") {
-//   constructor(
-//     private jwtService: JwtService,
-//     private adminAccountService: AdminAccountService,
+  async canActivate(context: ExecutionContext) {
+    const request = context.switchToHttp().getRequest();
 
-//     private config: AppConfigService
-//   ) {
-//     super();
-//   }
+    const { authorization } = request.headers;
 
-//   async canActivate(context: ExecutionContext) {
-//     const request = context.switchToHttp().getRequest();
+    if (authorization === undefined) {
+      throw new HttpException(
+        {
+          status: "error",
+          code: 2,
+          message: ErrorType.E002_UNAUTHRIZED,
+        },
+        HttpStatus.UNAUTHORIZED
+      );
+    }
 
-//     const { authorization } = request.headers;
+    const token = authorization.replace("Bearer ", "");
+    const res = await this.validateToken(token);
+    request.user = res;
 
-//     if (authorization === undefined) {
-//       throw new HttpException(
-//         {
-//           status: "error",
-//           code: 401,
-//           message: ErrorType.E401_UNAUTHRIZED,
-//         },
-//         HttpStatus.UNAUTHORIZED
-//       );
-//     }
+    return true;
+  }
 
-//     const token = authorization.replace("Bearer ", "");
-//     const res = await this.validateToken(token);
-//     request.user = res;
+  async validateToken(token: string) {
+    let retVal: AccountDocument | null = null;
+    let verifiedRes: AccountDocument | null | object = null;
+    try {
+      // const decodeVal: string | { [key: string]: any } =
+      //   this.jwtService.decode(token);
+      //token
+      const secretKey = this.config.jwtSecret;
+      verifiedRes = <AccountDocument>(
+        this.jwtService.verify(token, { secret: secretKey })
+      );
+      retVal = await this.accountService.getAccountByEmail(
+        (verifiedRes as AccountDocument).email
+      );
 
-//     return true;
-//   }
-
-//   async validateToken(token: string) {
-//     let retVal: AdminAccountDocument | null = null;
-//     let verifiedRes: AdminAccountDocument = null;
-//     try {
-//       // const decodeVal: string | { [key: string]: any } =
-//       //   this.jwtService.decode(token);
-//       //token
-//       const secretKey = this.config.jwtSecret;
-//       verifiedRes = this.jwtService.verify(token, { secret: secretKey });
-//       retVal = await this.adminAccountService.getAccountByEmail(
-//         verifiedRes.email
-//       );
-
-//       return retVal;
-//     } catch (error) {
-//       throw new HttpException(
-//         {
-//           status: "error",
-//           code: 401,
-//           message: ErrorType.E401_UNAUTHRIZED,
-//         },
-//         HttpStatus.UNAUTHORIZED
-//       );
-//     }
-//   }
-// }
+      return retVal;
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: "error",
+          code: 2,
+          message: ErrorType.E002_UNAUTHRIZED,
+        },
+        HttpStatus.UNAUTHORIZED
+      );
+    }
+  }
+}

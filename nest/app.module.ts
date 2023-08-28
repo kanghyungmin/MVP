@@ -9,10 +9,12 @@ import { Account, AccountSchema } from "./libs/models/account.entity";
 import { AccountController } from "./controller/account.controller";
 import { AccountService } from "./service/account.service";
 import { AccountRepository } from "./repository/accout.repo";
+import { AuthModule } from "./libs/modules/auth/auth.module";
 
 @Module({
   imports: [
     ConfigModule.register({ envPath: ".env" }),
+    AuthModule,
     DBconnectionMoudle,
     MongooseModule.forRootAsync({
       connectionName: process.env.REPL_MONGO_DB,
