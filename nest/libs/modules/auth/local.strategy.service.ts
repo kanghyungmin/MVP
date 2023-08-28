@@ -1,6 +1,6 @@
 import { PassportStrategy } from "@nestjs/passport";
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
-import { Strategy } from "passport-jwt";
+import { Strategy } from "passport-local";
 import { ErrorType } from "../../enums/errorType";
 import { RegisterAccountDto } from "../../dtos/account.dto";
 import { AccountDocument } from "../../models/account.entity";

@@ -27,7 +27,7 @@ import { AuthModule } from "./libs/modules/auth/auth.module";
       useFactory: async (dbSvc: DBconnectionService) => dbSvc.getMongoConfig(),
     }),
 
-    // AuthModule,
+    AuthModule,
   ],
   controllers: [AppController, AccountController],
   providers: [AppService, AccountService, AccountRepository],

@@ -8,15 +8,13 @@ import { AuthGuard } from "@nestjs/passport";
 import { JwtService } from "@nestjs/jwt";
 import { ErrorType } from "../enums/errorType";
 import { AccountDocument } from "../models/account.entity";
-import { ConfigService } from "../modules/config/config.service";
 import { AccountService } from "@/nest/service/account.service";
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard("jwt") {
   constructor(
     private jwtService: JwtService,
-    private accountService: AccountService,
-    private config: ConfigService
+    private accountService: AccountService
   ) {
     super();
   }
@@ -51,7 +49,8 @@ export class JwtAuthGuard extends AuthGuard("jwt") {
       // const decodeVal: string | { [key: string]: any } =
       //   this.jwtService.decode(token);
       //token
-      const secretKey = this.config.jwtSecret;
+
+      const secretKey = process.env.JWT_SECRET;
       verifiedRes = <AccountDocument>(
         this.jwtService.verify(token, { secret: secretKey })
       );

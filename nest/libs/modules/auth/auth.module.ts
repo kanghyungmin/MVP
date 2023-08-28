@@ -16,7 +16,7 @@ import { Account, AccountSchema } from "../../models/account.entity";
 
 @Module({
   imports: [
-    // ConfigModule.register({ envPath: ".env" }),
+    ConfigModule.register({ envPath: ".env" }),
     PassportModule.register({ defaultStrategy: "jwt" }),
     // DBconnectionMoudle,
     // //connection
@@ -40,6 +40,10 @@ import { Account, AccountSchema } from "../../models/account.entity";
   ],
 
   providers: [
+    {
+      provide: "CONFIG_OPTIONS",
+      useValue: { envPath: ".env" },
+    },
     AuthService,
     LocalStrategyService,
     JwtStrategyService,
@@ -47,5 +51,6 @@ import { Account, AccountSchema } from "../../models/account.entity";
     AccountRepository,
     ConfigService,
   ],
+  exports: [AuthService, JwtModule],
 })
 export class AuthModule {}
