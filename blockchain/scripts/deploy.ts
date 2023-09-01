@@ -5,9 +5,9 @@ async function main() {
   console.log("deploying MyERC20 contract");
   const ERC20 = await ethers.getContractFactory("MyToken");
   const erc20 = await ERC20.deploy();
-  // await erc20.deployed();
+  await erc20.deployed();
 
-  // console.log(`erc20 contract is deployed to ${erc20.address}`);
+  console.log(`erc20 contract is deployed to ${erc20.address}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
