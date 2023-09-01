@@ -17,7 +17,6 @@
     "@nestjs/passport": "^10.0.1",
     "@nestjs/platform-express": "^10.1.2",
     "@nestjs/swagger": "^7.1.4",
-    "@openzeppelin/contracts": "^4.9.3",
     "@types/node": "20.4.5",
     "@types/passport-jwt": "^3.0.9",
     "@types/passport-local": "^1.0.35",
