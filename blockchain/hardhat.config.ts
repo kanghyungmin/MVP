@@ -1,6 +1,10 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomiclabs/hardhat-ethers";
+import { config as dotEnvConfig } from "dotenv";
+dotEnvConfig();
+
+// const aa = "090e022073a50cae79ae157fa477775b7943f427d37c3376c054afb99e12ebdf";
 
 const config: HardhatUserConfig = {
   networks: {
@@ -11,10 +15,10 @@ const config: HardhatUserConfig = {
         "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
       ],
     },
-    // goerli: {
-    //   url: process.env.RPC_URL,
-    //   accounts: [process.env.PRIVATE_KEY!, process.env.TEST_PRIVATE_KEY!],
-    // },
+    sepolia: {
+      url: `${process.env.ALCHEMY_SEPOLIA_URL}`,
+      accounts: [`${process.env.SEPOLIA_PRIVATE_KEY}`], //`0x${process.env.SEPOLIA_PRIVATE_KEY}`],
+    },
     // matic: {
     //   url: process.env.RPC_URL_MATIC,
     //   accounts: [process.env.PRIVATE_KEY!, process.env.TEST_PRIVATE_KEY!],
