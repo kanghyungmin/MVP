@@ -4,8 +4,6 @@ import "@nomiclabs/hardhat-ethers";
 import { config as dotEnvConfig } from "dotenv";
 dotEnvConfig();
 
-// const aa = "090e022073a50cae79ae157fa477775b7943f427d37c3376c054afb99e12ebdf";
-
 const config: HardhatUserConfig = {
   networks: {
     hardhat: {},
