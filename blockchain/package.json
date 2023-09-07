@@ -12,6 +12,8 @@
     "@openzeppelin/contracts": "^4.9.3",
     "ether": "^0.0.5",
     "ethereum-waffle": "^4.0.10",
-    "ethers": "^5.7.2"
+    "ethers": "^5.7.2",
+    "flatten": "^1.0.3",
+    "waffle": "^0.0.4"
   }
 }
