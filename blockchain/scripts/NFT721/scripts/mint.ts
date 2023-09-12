@@ -10,7 +10,7 @@ async function mint(to: string, tokenId: number) {
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
-const tokenId = 4;
+const tokenId = 2;
 mint(process.env.PUBLIC_KEY!, tokenId).catch((error) => {
   console.error(error);
   process.exitCode = 1;
