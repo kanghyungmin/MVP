@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import { expect } from "chai";
 import chai from "chai";
 import { solidity } from "ethereum-waffle";
-import { Contract } from "ethers";
 import { ethers } from "hardhat";
 import { ethers as ethersType } from "ethers";
 
