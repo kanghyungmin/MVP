@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { expect } from "chai";
-
 import { ethers } from "hardhat";
 import { ethers as ethersType } from "ethers";
 import { solidity } from "ethereum-waffle";
