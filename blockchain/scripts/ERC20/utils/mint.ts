@@ -16,7 +16,7 @@ async function mint(to: string, amount: number) {
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
-const amount = 10000;
+const amount = 20000000000;
 mint(process.env.PUBLIC_KEY!, amount).catch((error) => {
   console.error(error);
   process.exitCode = 1;
