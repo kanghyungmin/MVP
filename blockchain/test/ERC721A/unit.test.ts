@@ -39,11 +39,9 @@ describe("Start Example ERC721A test", async () => {
 
   describe("Test Mint exampleERC721A", () => {
     it("Should  Mint corrrectly for the Example ERC721A Contract", async () => {
-      await exampleERC721A
-        .connect(addr1)
-        .mint(2, {
-          value: ethersType.utils.parseEther((price * 2).toString()),
-        });
+      await exampleERC721A.connect(addr1).mint(2, {
+        value: ethersType.utils.parseEther((price * 2).toString()),
+      });
 
       expect(
         exampleERC721A
