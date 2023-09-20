@@ -7,8 +7,12 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+
 
 contract MyToken2 is ERC20, Ownable, ERC20Permit, ERC20Votes {
+    using SafeERC20 for IERC20;
     constructor() ERC20("MyToken2", "MTK2") ERC20Permit("MyToken2") {}
 
     function mint(address to, uint256 amount) public onlyOwner {
