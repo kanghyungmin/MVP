@@ -13,23 +13,22 @@ import { AuthModule } from "./libs/modules/auth/auth.module";
 
 @Module({
   imports: [
-    ConfigModule.register({ envPath: ".env" }),
-    DBconnectionMoudle,
+    // ConfigModule.register({ envPath: ".env" }),
+    // DBconnectionMoudle,
     // data schema
-    MongooseModule.forFeature(
-      [{ name: Account.name, schema: AccountSchema }],
-      process.env.ATLAS_MONGO_DBNAME
-    ),
-    //connection
-    MongooseModule.forRootAsync({
-      connectionName: process.env.ATLAS_MONGO_DBNAME,
-      inject: [DBconnectionService],
-      useFactory: async (dbSvc: DBconnectionService) => dbSvc.getMongoConfig(),
-    }),
-
-    AuthModule,
+    // MongooseModule.forFeature(
+    //   [{ name: Account.name, schema: AccountSchema }],
+    //   process.env.ATLAS_MONGO_DBNAME
+    // ),
+    // //connection
+    // MongooseModule.forRootAsync({
+    //   connectionName: process.env.ATLAS_MONGO_DBNAME,
+    //   inject: [DBconnectionService],
+    //   useFactory: async (dbSvc: DBconnectionService) => dbSvc.getMongoConfig(),
+    // }),
+    // AuthModule,
   ],
-  controllers: [AppController, AccountController],
-  providers: [AppService, AccountService, AccountRepository],
+  controllers: [AppController], //, AccountController],
+  providers: [AppService], //, AccountService, AccountRepository],
 })
 export class AppModule {}
