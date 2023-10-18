@@ -14,6 +14,9 @@ module.exports = {
       },
     },
   },
+
+  // 왼쪽 포인트  / 용처
+  // 오른쪽 다오 토큰 / 용처
   plugins: [],
   compilerOptions: {
     emitDecoratorMetadata: true,
@@ -21,3 +24,5 @@ module.exports = {
     strictPropertyInitialization: false,
   },
 };
+
+// w-[155px] h-[26px]
