@@ -18,7 +18,7 @@ export default function Home() {
             ></img>
             {/* // className="w-sm:155 h-sm:26" /> */}
           </div>
-          <div className="relative gap-7 flex mr-[21px]">
+          <div className="relative gap-7 flex mr-[21px] bg-neutral-950">
             <div className="w-[20px] h-[20px] md:w-[28px] md:h-[28px] relative">
               <img src="/IconIOS.svg" />
             </div>
@@ -29,34 +29,42 @@ export default function Home() {
         </div>
       </nav>
       {/* Background Image */}
-      <div className="w-[375px] h-[300px] pb-[10.33px] justify-center items-center inline-flex">
-        <img
-          className="w-[375px] h-[541.67px] origin-top-left rotate-180"
-          src="https://via.placeholder.com/375x542"
-        />
+      <div className="w-full h-[600px] relative bg-neutral-950">
+        <div className="w-full pb-[1px] left-0 top-[300px] absolute justify-center items-center inline-flex z-10">
+          <img
+            className="origin-top-left w-full z-10"
+            src="/img-background-landing_M.png"
+          />
+        </div>
+        <div className="grid grid-cols-1 w-full h-[272px] justify-center gap-10 z-20">
+          <div className="h-[272px] flex-col justify-center justify-items-start gap-5 flex mt-[100px] ">
+            <div className="text-center text-white text-5xl font-bold font-['DM Sans'] leading-[60px]">
+              팬덤으로
+              <br />할 수 있는
+              <br />
+              모든 경험!
+            </div>
+            <div className="text-center text-gray-200 text-base font-medium font-['Pretendard'] leading-normal z-10">
+              응원하는 가수의 공연 티켓 예매부터, 투표
+              <br />
+              그리고 함께 이야기를 나눌 수 있는
+              <br />
+              커뮤니티까지 한 번에 누릴 수 있어요.
+            </div>
+          </div>
+        </div>
+        <div className="ml-[24px] mt-[-205px] z-30 relative">
+          <div className="w-[22px] h-[22px] bg-gradient-to-br from-blue-200 to-violet-400 rounded-full shadow">
+            <img className="origin-top-left w-full" src="/img-dot-purple.png" />
+            <div className="ml-[295px] mt-[292px] w-[20px] h-[20px] bg-pink-300 rounded-full shadow"></div>
+
+            {/* 위 부분 해결-//relative & absolute & static */}
+            {/* <div className="w-[20.27px] h-[20.27px] absolute">
+              <div className="w-4 h-4 top-0 absolute origin-top-left rotate-[18.62deg] bg-gradient-to-br from-amber-100 to-orange-400 rounded-full shadow" />
+            </div> */}
+          </div>
+        </div>
       </div>
     </header>
   );
-  // return (
-  //   <div className="grid grid-cols-12">
-  //     <div className="w-[1920px] h-[82px] px-20 py-[22px] bg-neutral-950 justify-between items-center inline-flex">
-  //       <div className="h-[38px] justify-between items-center flex">
-  //         <div className="w-56 h-[38px] justify-center items-center flex">
-  //           <div className="w-56 h-[38px] relative flex-col justify-start items-start flex">
-  //             <img src="/logo2.png" />
-  //           </div>
-  //         </div>
-  //         <div className="justify-start items-start gap-8 flex">
-  //           <div className="w-9 h-9 pl-[3.75px] pr-[5.15px] pt-[1.28px] pb-[1.46px] justify-center items-center flex"></div>
-  //           <img src="/IconIOS.svg" />
-  //           <div className="w-9 h-9 px-[3px] py-[1.50px] justify-center items-center flex"></div>
-  //           <img src="IconAndroid.svg" />
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 }
-// <button className="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
-//   hello world!
-// </button>
