@@ -28,8 +28,8 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      {/* Hero Image */}
-      <div className="w-full h-[600px] relative bg-neutral-950">
+      {/* Hero Image-SM */}
+      <div className="sm:hidden w-full h-[600px] relative bg-neutral-950">
         <div className="w-full pb-[1px] left-0 top-[300px] absolute justify-center items-center inline-flex z-10">
           <img
             className="origin-top-left w-full z-10"
@@ -60,6 +60,33 @@ export default function Home() {
           </div>
           <div className="ml-[143px] mt-[408px] w-[20px] h-[20px] absolute origin-top-left rotate-[18.62deg] bg-gradient-to-br from-amber-100 to-orange-400 rounded-full shadow" />
         </div>
+      </div>
+      {/* Hero Image-MD */}
+      <div className="sm:block hidden w-full h-[880px] relative bg-neutral-950">
+        <div className="w-[768px] pt-[5px] pb-[35px] left-0 top-[488px] absolute justify-center items-center inline-flex">
+          <img
+            className="w-[768px] h-[352px] origin-top-left rotate-0"
+            src="/img-background-landing_M.png"
+          />
+        </div>
+        <div className="h-[248px] px-12 left-0 top-[240px] absolute flex-col justify-start items-center gap-8 inline-flex">
+          <div className="self-stretch h-40 flex-col justify-start items-center gap-4 flex">
+            <div className="self-stretch text-center text-white text-[64px] font-bold font-['DM Sans'] leading-[80px]">
+              팬덤으로 할 수 있는
+              <br />
+              모든 경험!
+            </div>
+          </div>
+          <div className="self-stretch text-center text-gray-200 text-xl font-normal font-['Pretendard'] leading-7">
+            응원하는 가수의 공연 티켓 예매부터, 투표 그리고 함께 이야기를 나눌
+            수 있는
+            <br />
+            커뮤니티까지 한 번에 누릴 수 있어요.
+          </div>
+        </div>
+        <div className="w-7 h-7 left-[44px] top-[185px] absolute bg-gradient-to-br from-blue-200 to-violet-400 rounded-full shadow" />
+        <div className="w-[22px] h-[22px] left-[521.02px] top-[665px] absolute origin-top-left rotate-[18.62deg] bg-gradient-to-br from-amber-100 to-orange-400 rounded-full shadow" />
+        <div className="w-[26px] h-[26px] left-[704px] top-[493px] absolute bg-pink-300 rounded-full shadow" />
       </div>
     </header>
   );
