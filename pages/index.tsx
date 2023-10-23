@@ -28,7 +28,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
-      {/* Background Image */}
+      {/* Hero Image */}
       <div className="w-full h-[600px] relative bg-neutral-950">
         <div className="w-full pb-[1px] left-0 top-[300px] absolute justify-center items-center inline-flex z-10">
           <img
@@ -56,13 +56,9 @@ export default function Home() {
         <div className="ml-[24px] mt-[-205px] z-30 relative">
           <div className="w-[22px] h-[22px] bg-gradient-to-br from-blue-200 to-violet-400 rounded-full shadow">
             <img className="origin-top-left w-full" src="/img-dot-purple.png" />
-            <div className="ml-[295px] mt-[292px] w-[20px] h-[20px] bg-pink-300 rounded-full shadow"></div>
-
-            {/* 위 부분 해결-//relative & absolute & static */}
-            {/* <div className="w-[20.27px] h-[20.27px] absolute">
-              <div className="w-4 h-4 top-0 absolute origin-top-left rotate-[18.62deg] bg-gradient-to-br from-amber-100 to-orange-400 rounded-full shadow" />
-            </div> */}
+            <div className="ml-[307px] mt-[304px] w-[20px] h-[20px] bg-pink-300 rounded-full shadow"></div>
           </div>
+          <div className="ml-[143px] mt-[408px] w-[20px] h-[20px] absolute origin-top-left rotate-[18.62deg] bg-gradient-to-br from-amber-100 to-orange-400 rounded-full shadow" />
         </div>
       </div>
     </header>
