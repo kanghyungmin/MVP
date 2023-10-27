@@ -1,19 +1,10 @@
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
-
-const DynamicComponent = dynamic(() => import("./component/collapses"), {
-  ssr: false,
-});
-console.log(DynamicComponent);
+import Arcodian from "./component/arcordinan";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  let location;
-
-  if (typeof document !== "undefined") {
-    return null;
-  }
   return (
     <header>
       {/* NavBar */}
@@ -130,10 +121,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <DynamicComponent />
-        <DynamicComponent />
-        <DynamicComponent />
-        <DynamicComponent />
+        <Arcodian />
+        {/* <Arcodian />
+        <Arcodian /> */}
       </div>
 
       {/* Hero Image-MD */}
