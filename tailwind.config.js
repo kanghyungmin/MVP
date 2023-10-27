@@ -17,7 +17,7 @@ module.exports = {
 
   // 왼쪽 포인트  / 용처
   // 오른쪽 다오 토큰 / 용처
-  plugins: [],
+  plugins: [require("tw-elements/dist/plugin.cjs")],
   compilerOptions: {
     emitDecoratorMetadata: true,
     experimentalDecorators: true,
