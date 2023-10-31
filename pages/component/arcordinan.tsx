@@ -67,7 +67,7 @@ function Arcodian() {
               aria-labelledby="headingOne"
               data-te-parent="#accordionExample"
             >
-              <div className="min-w-[279px] text-zinc-200 text-base px-9 font-normal font-['Pretendard'] leading-normal">
+              <div className="max-w-[279px] text-zinc-200 text-base pl-12 font-normal font-['Pretendard'] leading-normal">
                 내가 응원하는 가수를 향해 다양한 방식으로 커뮤니티 내에서 의견을
                 나누고 생각을 공유할 수 있어요.
               </div>
@@ -113,7 +113,7 @@ function Arcodian() {
               aria-labelledby="headingTwo"
               data-te-parent="#accordionExample"
             >
-              <div className="min-w-[279px] text-zinc-200 text-base px-9 font-normal font-['Pretendard'] leading-normal">
+              <div className="max-w-[279px] text-zinc-200 text-base pl-12 font-normal font-['Pretendard'] leading-normal">
                 공연에 대한 단독 티켓팅, 단 하나뿐인 NFT, 그리고 투표 등
                 크리에이티브 오너십을 가질 수 있는 새로운 방안을 제시해요.
               </div>
@@ -159,7 +159,7 @@ function Arcodian() {
               aria-labelledby="headingThree"
               data-te-parent="#accordionExample"
             >
-              <div className="min-w-[279px] text-zinc-200 text-base px-9 font-normal font-['Pretendard'] leading-normal">
+              <div className="max-w-[279px] text-zinc-200 text-base pl-12 font-normal font-['Pretendard'] leading-normal">
                 수동적으로 소비하는 팬 문화가 아닌, 스스로 만들어 가는 새로운 팬
                 문화 확산에 참여할 수 있어요.
               </div>
