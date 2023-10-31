@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Collapse, initTE } from "tw-elements";
 
 function Arcodian() {
-  const [count, setCount] = useState(0);
-
   useEffect(() => {
     const init = async () => {
       const { Collapse, initTE } = await import("tw-elements");
